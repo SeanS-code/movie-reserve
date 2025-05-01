@@ -1,0 +1,19 @@
+{
+  "name": "movie-reserve",
+  "version": "0.0.1",
+  "description": "movie reservation application",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "back": "backend",
+    "front": "frontend"
+  },
+  "scripts": {
+    "server": "node ./backend/index.js"
+  },
+  "author": "SeanS-code",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
