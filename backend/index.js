@@ -1,5 +1,7 @@
 import express from 'express'
 
+import pool from './db'
+
 const app = express()
 const port = 3000
 
