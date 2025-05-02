@@ -1,9 +1,12 @@
-import { Pool } from 'pg';  // Importing Pool from pg module
+import dotenv from 'dotenv'
+import { Pool } from 'pg';
+
+dotenv.config()
 
 // Create a new pool instance for database connection
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,  // This will be the container name or 'host.docker.internal' for Docker
+  user:  process.env.DB_USER,
+  host: process.env.DB_HOST,
   database: process.env.DB_DATABASE,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
@@ -19,8 +22,6 @@ const connectDb = async () => {
   }
 };
 
-// Call the connection test function
+// Call connection function
 connectDb();
-
-// Export the pool so it can be used in other parts of the app
 export default pool;

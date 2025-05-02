@@ -12,8 +12,5 @@
     "server": "node ./backend/index.js"
   },
   "author": "SeanS-code",
-  "license": "MIT",
-  "dependencies": {
-    "dotenv": "^16.5.0"
-  }
+  "license": "MIT"
 }
