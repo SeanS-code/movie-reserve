@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: moviereserve
+      POSTGRES_USER: postgres
+      POSTGRES_DB: mr-db
+  app:
+    image: movie-reserve
+    ports:
+      - 3000:5000
