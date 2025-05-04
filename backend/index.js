@@ -6,18 +6,26 @@ import pool from './db.js'
 const port = 5000
 
 const app = express()
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
+
+
+// User Authentication & Authorization
+
 
 app.get('/', async (req, res) => {
     try {
-      const data = await pool.query('SELECT * FROM movies')
-      res.status(200).send(data.rows)
+      const data = await pool.query('SELECT * FROM movies ORDER BY id')
+      const list = data.rows
+      res.status(200).send(list)
     } catch(e) {
       res.status(500).send(e)
     }
 })
 
+// Movie Management - Admin
+
+// Movies
 app.post('/add_movie', async (req, res) => {
     const { title, description, poster_url, genre } = req.body
 
@@ -60,6 +68,14 @@ app.delete('/delete_movie/:id', async (req, res) => {
     res.status(500).send(e)
   }
 })
+
+// Showtimes
+app.post('/add_showtime/:id', async (req, res) => {
+
+  res.status(500).send("error")
+})
+
+// Reservation Management
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
